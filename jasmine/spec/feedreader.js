@@ -90,16 +90,13 @@ $(function() {
     *  a single .entry element within the .feed container.
     */
     let entries;
-    beforeEach(function (done) {
+    beforeEach(function(done) {
       // Load the forth feed
-      loadFeed(3);
-
-      // Wait for loadFeed to complete for 10000
-      setTimeout(function() {
+      loadFeed(3, function() {
         // Get all articles with className .entry inside .feed, then execute the spec
         entries = $('.feed .entry');
         done();
-      }, 10000);
+      });
     });
 
     it('should ensure that there is at least a single .entry element when the loadFeed completes', function() {
